@@ -23,26 +23,25 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
     </head>
-    <body class="container">
-        <h1>Sistema para Cadastro de Dvds</h1>
+    <body>
         
-        <p>
-            <a href="${cp}/formularios/generos/listagem.jsp">Gênero</a>
-        </p>
-        <p>
-            <a href="${cp}/formularios/classificacaoEtaria/listagem.jsp">Classificação Etária</a>
-        </p>
-        <p>
-            <a href="${cp}/formularios/atores/listagem.jsp">Ator</a>
-        </p>
-        <p>
-            <a href="${cp}/formularios/dvds/listagem.jsp">Dvd</a>
-        </p>
+<!--        <img src="pics/claquete.jpg" class="img-thumbnail">-->
         
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-
+        <div class="bg-image d-flex justify-content-center" style="background-image: url('pics/claquete.jpg'); height: 100vh; background-size: cover;">
+        
+            <div class="container-sm d-flex flex-column justify-content-center w-50">
+                <h1 class="text-center text-light fw-bolder">Sistema para Cadastro de Dvds<br/><br/><br/></h1>
+                <a class="btn btn-light btn-lg fw-bolder" href="${cp}/formularios/generos/listagem.jsp" role="button">Gênero</a><br/>
+                <a class="btn btn-light btn-lg fw-bolder" href="${cp}/formularios/classificacaoEtaria/listagem.jsp" role="button">Classificação Etária</a><br/>
+                <a class="btn btn-light btn-lg fw-bolder" href="${cp}/formularios/atores/listagem.jsp" role="button">Ator</a><br/>
+                <a class="btn btn-light btn-lg fw-bolder" href="${cp}/formularios/dvds/listagem.jsp" role="button">Dvd</a>
+            </div>
+            
+        </div>
+        
+            
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         
