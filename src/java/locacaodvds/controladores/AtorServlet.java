@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.ws.rs.BadRequestException;
 import locacaodvds.dao.AtorDAO;
 import locacaodvds.entidades.Ator;
 import java.sql.Date;
@@ -30,12 +31,12 @@ public class AtorServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String acao = request.getParameter("acao");
 
         AtorDAO dao = null;
         RequestDispatcher disp = null;
-        
+
         try {
             dao = new AtorDAO();
 
@@ -80,9 +81,14 @@ public class AtorServlet extends HttpServlet {
                 Ator a = new Ator();
                 a.setId(id);
 
-                dao.excluir(a);
-                disp = request.getRequestDispatcher(
-                        "/formularios/atores/listagem.jsp");
+                try {
+                    dao.excluir(a);
+                    disp = request.getRequestDispatcher(
+                            "/formularios/atores/listagem.jsp");
+                } catch (BadRequestException e) {
+                    System.out.println("Tentativa de deletar ator cadastrado em dvd.");
+                    disp = request.getRequestDispatcher("/formularios/atores/error.jsp");
+                }
 
             } else {
 

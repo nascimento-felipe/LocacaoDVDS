@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/src/java/locacaodvds/dao/AtorDAO.java</file>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/web/formularios/atores/excluir.jsp</file>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/src/java/locacaodvds/controladores/DvdServlet.java</file>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/src/java/locacaodvds/controladores/AtorServlet.java</file>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/src/java/locacaodvds/dao/DvdDAO.java</file>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/web/formularios/dvds/excluir.jsp</file>
-            <file>file:/C:/Users/felip/Documents/NetBeansProjects/LocacaoDVDS/web/formularios/dvds/listagem.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

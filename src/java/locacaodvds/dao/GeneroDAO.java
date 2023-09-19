@@ -1,5 +1,6 @@
 package locacaodvds.dao;
 
+import jakarta.ws.rs.BadRequestException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -48,6 +49,19 @@ public class GeneroDAO extends DAO<Genero> {
 
     @Override
     public void excluir(Genero obj) throws SQLException {
+        
+        PreparedStatement verifyDvd = getConnection().prepareStatement(
+                "SELECT * FROM dvd "
+                + " WHERE genero_id = ?;");
+
+        verifyDvd.setInt(1, obj.getId());
+
+        ResultSet rs = verifyDvd.executeQuery();
+
+        if (rs.next()) {
+            throw new BadRequestException("Impossível excluir Gênero enquanto estiver cadastrada em um dvd.");
+        }
+        
         PreparedStatement stmt = getConnection().prepareStatement(
                 "DELETE FROM genero "
                 + " WHERE "

@@ -1,5 +1,6 @@
 package locacaodvds.dao;
 
+import jakarta.ws.rs.BadRequestException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -52,12 +53,28 @@ public class AtorDAO extends DAO<Ator> {
     }
 
     @Override
-    public void excluir(Ator obj) throws SQLException {
+    public void excluir(Ator obj) throws SQLException, BadRequestException {
+
+        PreparedStatement verifyDvd = getConnection().prepareStatement(
+                "SELECT * FROM dvd "
+                + " WHERE ator_principal_id = ?"
+                + " OR "
+                + " ator_coadjuvante_id = ?;");
+
+        verifyDvd.setInt(1, obj.getId());
+        verifyDvd.setInt(2, obj.getId());
+
+        ResultSet rs = verifyDvd.executeQuery();
+
+        if (rs.next()) {
+            throw new BadRequestException("Impossível excluir Ator enquanto estiver cadastrada em um dvd.");
+        }
+
         PreparedStatement stmt = getConnection().prepareStatement(
                 "DELETE FROM ator "
                 + " WHERE "
                 + " id = ?;");
-        
+
         stmt.setInt(1, obj.getId());
 
         stmt.executeUpdate();
@@ -98,7 +115,7 @@ public class AtorDAO extends DAO<Ator> {
         PreparedStatement stmt = getConnection().prepareStatement(
                 "SELECT * FROM ator "
                 + " WHERE id = ?;");
-        
+
         stmt.setInt(1, id);
 
         ResultSet rs = stmt.executeQuery();

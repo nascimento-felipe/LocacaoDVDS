@@ -1,5 +1,6 @@
 package locacaodvds.dao;
 
+import jakarta.ws.rs.BadRequestException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,7 +47,19 @@ public class ClassificacaoEtariaDAO extends DAO<ClassificacaoEtaria> {
     }
 
     @Override
-    public void excluir(ClassificacaoEtaria obj) throws SQLException {
+    public void excluir(ClassificacaoEtaria obj) throws SQLException, BadRequestException {
+        PreparedStatement verifyDvd = getConnection().prepareStatement(
+                "SELECT * FROM dvd "
+                + " WHERE classificacao_etaria_id = ?;");
+
+        verifyDvd.setInt(1, obj.getId());
+
+        ResultSet rs = verifyDvd.executeQuery();
+
+        if (rs.next()) {
+            throw new BadRequestException("Impossível excluir Classificacao Etaria enquanto estiver cadastrada em um dvd.");
+        }
+
         PreparedStatement stmt = getConnection().prepareStatement(
                 "DELETE FROM classificacao_etaria "
                 + " WHERE "
