@@ -12,62 +12,82 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alterar Ator</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Simple line icons-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        
-        <h1>Alterar Ator</h1>
 
-        <form method="post" action="${cp}/processaAtor">
-            <input name="acao" type="hidden" value="alterar"/>
-            
-            <input name="id" type="hidden" value="${requestScope.ator.id}"/>
+        <div class="bg-image d-flex flex-column justify-content-center" style="background-image: url('../../pics/claquete.jpg'); height: 100vh; background-size: cover;">
+            <div class="container-sm d-flex flex-column justify-content-center w-50">
 
-            <table>
-                <tr>
-                    <td>Nome:</td>
-                    <td>
-                        <input name="nome"
-                               type="text"
-                               size="20"
-                               maxlength="45"
-                               value="${requestScope.ator.nome}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Sobrenome:</td>
-                    <td>
-                        <input name="sobrenome"
-                               type="text"
-                               size="20"
-                               maxlength="45"
-                               value="${requestScope.ator.sobrenome}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Data de Estreia:</td>
-                    <td>
-                        <input name="dataEstreia"
-                               type="date"
-                               size="20"
-                               maxlength="45"
-                               value="${requestScope.ator.dataEstreia}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="${cp}/formularios/atores/listagem.jsp">
-                            Voltar
-                        </a>
-                    </td>
-                    <td>
-                        <input type="submit" value="Alterar"/>
-                    </td>
-                </tr>
-            </table>
-        </form>
+                <h1 class="text-center text-light fw-bolder">Alterar Ator</h1>
+
+                <form method="post" action="${cp}/processaAtor">
+                    <div class="container-fluid w-75 pt-5">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-center">
+                                <input name="acao" type="hidden" value="alterar"/>
+                                <input name="id" type="hidden" value="${requestScope.ator.id}"/>
+
+                                <table>
+                                    <tr>
+                                        <td class="text-light fw-bolder">Nome:</td>
+                                        <td>
+                                            <input name="nome"
+                                                   type="text"
+                                                   size="20"
+                                                   maxlength="45"
+                                                   value="${requestScope.ator.nome}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-light fw-bolder">Sobrenome:</td>
+                                        <td>
+                                            <input name="sobrenome"
+                                                   type="text"
+                                                   size="20"
+                                                   maxlength="45"
+                                                   value="${requestScope.ator.sobrenome}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-light fw-bolder">Data de Estreia:</td>
+                                        <td>
+                                            <input name="dataEstreia"
+                                                   type="date"
+                                                   size="20"
+                                                   maxlength="45"
+                                                   value="${requestScope.ator.dataEstreia}"/>
+                                        </td>
+                                    </tr>
+                                </table><br/>
+                            </div>
+                                        
+                            <div class="text-center">
+                                <br/>
+                                <input class="btn btn-light" type="submit" value="Alterar"/>
+                                <a class="btn btn-light" href="${cp}/formularios/atores/listagem.jsp">Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     </body>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>s
 </html>
